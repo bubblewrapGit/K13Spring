@@ -11,7 +11,7 @@
 <body>
 <div class="container">
 	<h2>Spring Framework 시작하기</h2>
-
+	<br><hr><br>
 <!-- 
 Spring MVC에서는 이미지와 같은 정적 리소스를 사용하기 위해 별도의 resources 폴더를 제공한다.
 해당 폴더의 매핑은 servlet-context.xml에서 변경하거나 추가할 수 있다.
@@ -27,13 +27,15 @@ Spring MVC에서는 이미지와 같은 정적 리소스를 사용하기 위해 
 	 -->
 	<img src="./resources/images/img_avatar2.png" alt="아바타2" width="200"/>
 	<img src="./static/images/1.png" alt="스펀지밥" width="200"/>
-	
+
+	<br><hr><br>
 	<!-- 1. 컨트롤러 제작을 위해 요청명을 결정한다. -->
 	<h3>첫번째 컨트롤러 만들기</h3>
 	<li>
 		<a href="./home/helloSpring" target="_blank">첫번째 컨트롤러</a>
 	</li>
-	
+
+	<br><hr><br>
 	<!-- 컨트롤러 : FormController.java -->
 	<h3>form값 처리하기1</h3>
 	<li>
@@ -70,6 +72,61 @@ Spring MVC에서는 이미지와 같은 정적 리소스를 사용하기 위해 
 	<li>
 		<a href="./requestMapping/index.do" target="_black">
 			requestMapping 시작페이지 바로가기
+		</a>
+	</li>
+
+	<br><hr><br>
+	
+	<!-- 컨트롤러 : ValidateController.java -->
+	<h3>폼 데이터 검증하기 - Validator</h3>
+	<li>
+		<a href="validate/memberRegist.do" target="_black">
+			회원가입 바로가기
+		</a>
+	</li>
+	
+	<br><hr><br>
+	
+	<!-- 컨트롤러 : EnvironmentController -->
+	<h3>Environment 객체를 이용한 외부파일 참조하기</h3>
+	<li>
+		<a href="environment/main1" target="_black">
+			외부파일 참조하기 1(Environment 객체 사용)
+		</a>
+	</li>
+	
+	<br><hr><br>
+	
+	<!-- 컨트롤러 : DIController.java-->
+	<h3>DI(Dependency Injection) : 의존성 주입</h3>
+	<li>
+		<a href="di/mydi1.do" target="_black">
+			XML설정파일을 통한 빈 생성1(생성자와 setter)
+		</a>
+	</li>
+
+	<li>
+		<a href="di/mydi2.do" target="_black">
+			XML설정파일을 통한 빈 생성2(다양한 멤버변수)
+		</a>
+	</li>
+	
+	<li>
+		<a href="di/mydi3.do" target="_black">
+			어노테이션을 통한 빈 생성
+		</a>
+	</li>
+	
+	<br><hr><br>
+	<h3>파일업로드</h3>
+	<li>
+		<a href="fileUpload/uploadPath.do" target="_black">
+			upload폴더의 물리적 경로 확인하기
+		</a>
+	</li>
+	<li>
+		<a href="./fileUpload/uploadForm.do" target="_black">
+			파일업로드 폼
 		</a>
 	</li>
 </div>

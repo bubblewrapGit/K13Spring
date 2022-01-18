@@ -33,4 +33,20 @@
 	
 	
 	
+	
+	
+	<!-- 파일 업로드를 위한 빈 생성 -->
+	<beans:bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 업로드할 파일의 최대용량 : 1Mb -->
+		<beans:property name="maxUploadSize" value="1000000" />
+	</beans:bean>
+	
+	<!-- 파일 다운로드를 위한 빈 생성 -->
+	<!-- <beans:bean id="fileDounloadView" class="common.FileDownLoadView"/> -->
+	<beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0" />
+	</beans:bean>
+	
+	
 </beans:beans>
