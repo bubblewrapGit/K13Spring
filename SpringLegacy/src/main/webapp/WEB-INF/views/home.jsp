@@ -125,8 +125,13 @@ Spring MVC에서는 이미지와 같은 정적 리소스를 사용하기 위해 
 		</a>
 	</li>
 	<li>
-		<a href="./fileUpload/uploadForm.do" target="_black">
+		<a href="fileUpload/uploadForm.do" target="_black">
 			파일업로드 폼
+		</a>
+	</li>
+	<li>
+		<a href="fileUpload/uploadList.do" target="_black">
+			파일목록보기
 		</a>
 	</li>
 </div>

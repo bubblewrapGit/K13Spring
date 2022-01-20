@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class FileuploadController {
@@ -97,7 +98,8 @@ public class FileuploadController {
 					// 물리적 경로에 새롭게 생성된 파일명으로 파일 저장
 						// File.separator OS(윈도우, 리눅스 등)에 맞게끔 역슬러시||슬러시 자동 부여
 				mfile.transferTo(new File(path+File.separator+saveFileName));
-				
+				// -- bok : 파일을 업로드하면 transferTo 를 통해서 실제 파일시스템에 쓰게(write) 됩니다.
+
 				// 폼값과 파일명을 저장할 Map컬렉션 생성
 				Map<String, String> fileMap = new HashMap<String, String>();
 				// 원본파일명, 저장된파일명, 제목을 저장한다.
@@ -114,5 +116,57 @@ public class FileuploadController {
 		
 		model.addAttribute("resultList", resultList);
 		return "06FileUpload/uploadAction";
+	}
+	
+	// 파일목록보기
+	@RequestMapping("/fileUpload/uploadList.do")
+	public String uploadList(HttpServletRequest req, Model model) {
+		// 물리적경로 얻어오기
+		String path = req.getSession().getServletContext().getRealPath("/resources/upload");
+		// 경로를 기반으로 파일객체 생성
+		File file = new File(path);
+		// 파일의 목록을 배열 형태로 얻어옴
+		File[] fileArray = file.listFiles();
+		// View로 전달할 파일 목록 저장을 위해 Map컬렉션 생성
+		Map<String, Integer> fileMap = new HashMap<String, Integer>();
+		for(File f : fileArray) {
+			// key와 value로 파일명과 파일용량을 저장한다.
+			fileMap.put(f.getName(), (int)Math.ceil(f.length()/1024.0));
+		}
+		model.addAttribute("fileMap", fileMap);
+		return "06FileUpload/uploadList";
+	}
+	
+	// 파일 다운로드 처리
+	@RequestMapping("/fileUpload/download.do")
+	public ModelAndView download(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+System.out.println("파일 다운로드 처리 부분");
+		/*
+		 * 파일리스트에서 다운로드 링크는 
+		 * download.do?fileName=${file.key }&oriFileName=임시파일명
+		 * 와 같이 걸려있다.
+		 */
+		String fileName = req.getParameter("fileName"); // 저장된 파일명
+		String oriFileName = req.getParameter("oriFileName"); // 원본 파일명
+		// 물리적 경로
+		String saveDirectory = req.getSession().getServletContext().getRealPath("/resources/upload");
+		// 경로와 파일명을 통해 파일객체 생성
+		File downloadFile = new File(saveDirectory + "/" + fileName);
+		// 해당 경로에 파일이 있는지 확인
+		if(!downloadFile.canRead()) {
+			throw new Exception("파일을 찾을 수 없습니다.");
+		}
+		
+		// 다운로드를 위한 View와 Model처리
+		ModelAndView mv = new ModelAndView();
+		// 다운로드 할 View명
+		mv.setViewName("fileDownloadView");
+		// 저장된 파일의 전체 경로명
+		mv.addObject("downloadFile", downloadFile);
+		// 원본 파일명 
+		mv.addObject("oriFileName", oriFileName);
+		
+		return mv;
+		
 	}
 }

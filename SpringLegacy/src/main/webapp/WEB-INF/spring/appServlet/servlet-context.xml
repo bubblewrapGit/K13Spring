@@ -43,10 +43,11 @@
 	</beans:bean>
 	
 	<!-- 파일 다운로드를 위한 빈 생성 -->
-	<!-- <beans:bean id="fileDounloadView" class="common.FileDownLoadView"/> -->
+	<beans:bean id="fileDownloadView" class="common.FileDownloadView"/>
 	<beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="0" />
 	</beans:bean>
+	
 	
 	
 </beans:beans>
