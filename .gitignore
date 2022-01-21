@@ -4815,3 +4815,10 @@ SpringLegacy/target/test-classes/log4j.xml
 .metadata/.plugins/org.springframework.ide.eclipse.xml.namespaces/images/-677243155.gif
 .metadata/.plugins/org.springframework.ide.eclipse.xml.namespaces/images/-677251483.gif
 /.metadata/
+JDBCTemplateAuto/.settings/org.eclipse.jdt.core.prefs
+JDBCTemplateAuto/.settings/org.eclipse.m2e.core.prefs
+JDBCTemplateAuto/.settings/org.eclipse.wst.common.component
+JDBCTemplateAuto/.settings/org.eclipse.wst.common.project.facet.core.xml
+JDBCTemplateAuto/.settings/org.eclipse.wst.validation.prefs
+JDBCTemplateAuto/.settings/org.springframework.ide.eclipse.beans.core.prefs
+JDBCTemplateAuto/.settings/org.springframework.ide.eclipse.core.prefs
