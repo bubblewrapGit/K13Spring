@@ -18,12 +18,11 @@
             <div class="row">
                 <form action="">
                     <div class="input-group ms-auto" style="width: 400px;">
-                        <select name="" class="form-control">
-                            <option value="">제목</option>
-                            <option value="">내용</option>
-                            <option value="">작성자</option>
+                        <select name="searchColumn" class="form-control">
+                            <option value="title">제목</option>
+                            <option value="contents">내용</option>
                         </select>
-                        <input type="text" class="form-control" placeholder="Search" style="width: 200px;">
+                        <input type="text" class="form-control" placeholder="검색어를 입력하세요" style="width: 200px;"  name="searchWord">
                         <button class="btn btn-success" type="submit">
                             <i class="bi-search" style="font-size: 1rem; color: white;"></i>
                         </button>
