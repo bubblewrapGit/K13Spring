@@ -1,22 +1,17 @@
 package mybatis;
 
+import lombok.Data;
+
+@Data
 public class ParameterDTO {
-	private String user_id;
-	private String board_idx;
-	
-	
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	public String getBoard_idx() {
-		return board_idx;
-	}
-	public void setBoard_idx(String board_idx) {
-		this.board_idx = board_idx;
-	}
+	private String user_id; 	// 사용자 아이디
+	private String board_idx; 	// 게시판 일련번호
+	//검색기능 추가
+	private String searchField; // 검색할 필드명
+	private String searchTxt; 	// 검색어
+	// select 구간을 위한 멤버변수
+	private int start; 			// select의 시작
+	private int end; 			// 끝
 	
 	
 }

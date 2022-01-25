@@ -1,6 +1,8 @@
 package mybatis;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,14 @@ public interface MybatisDAOImpl {
 	public ArrayList<MyBoardDTO> listPage(int s, int e); // 파라미터 2개 있음
 	
 	/*
+	 방명록 2차 버전(검색어O)
+	 검색기능 추가 : 파라미터를 저장한 DTO를 매개변수로 받는다.
+	 즉, Mapper로 DTO를 통해 파라미터를 전달한다.
+	 */
+	public int getTotalCountSearch(ParameterDTO parameterDTO);
+	public ArrayList<MyBoardDTO> listPageSearch(ParameterDTO parameterDTO);
+	
+	/*
 	 @param 어노테이션을 통해 파라미터를 전달하면 Mapper에서는 별칭을 통해
 	 인파라미터 처리를 할 수 있다.
 	 */
@@ -42,4 +52,10 @@ public interface MybatisDAOImpl {
 	
 	// 삭제 처리
 	public int delete(String idx, String id);
+	
+	// Map컬렉션 사용을 위한 추상메서드
+	public ArrayList<MyBoardDTO> hashMapUse(Map<String, String> hMap);
+	// List컬렉션 사용을 위한 추상메서드
+	public ArrayList<MyBoardDTO> arrayListUse(List<String> aList);
+	
 }
